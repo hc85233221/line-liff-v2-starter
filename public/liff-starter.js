@@ -1,258 +1,208 @@
-window.onload = function() {
-    const useNodeJS = true;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "";   // change the default LIFF value if you are not using a node server
-
-    // DO NOT CHANGE THIS
-    let myLiffId = "";
-
-    // if node is used, fetch the environment variable and pass it to the LIFF method
-    // otherwise, pass defaultLiffId
-    if (useNodeJS) {
-        fetch('/send-id')
-            .then(function(reqResponse) {
-                return reqResponse.json();
-            })
-            .then(function(jsonResponse) {
-                myLiffId = jsonResponse.id;
-                initializeLiffOrDie(myLiffId);
-            })
-            .catch(function(error) {
-                document.getElementById("liffAppContent").classList.add('hidden');
-                document.getElementById("nodeLiffIdErrorMessage").classList.remove('hidden');
-            });
-    } else {
-        myLiffId = defaultLiffId;
-        initializeLiffOrDie(myLiffId);
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF Starter</title>
+        <link rel="stylesheet" href="style.css">
+            {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://syp.tycc.org.tw/course//images_teacher/syp/59bf970fc46e9.jpg",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "氣球專家-廖先皓",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true,
+            "contents": []
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "text",
+                "text": "☆QBN氣球執照",
+                "weight": "bold",
+                "size": "sm",
+                "flex": 0,
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "text",
+                "text": "★社區大學講師",
+                "weight": "bold",
+                "size": "sm",
+                "flex": 0,
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "flex": 1,
+            "contents": [
+              {
+                "type": "text",
+                "text": "☆受邀2018國際賽事",
+                "weight": "bold",
+                "size": "sm",
+                "flex": 0,
+                "wrap": true,
+                "contents": []
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "postback",
+              "label": "連絡電話",
+              "text": "連絡電話",
+              "data": "0932276974"
+            },
+            "flex": 2,
+            "color": "#AAAAAAFF",
+            "style": "primary"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "加我LINEㄅ",
+              "uri": "https://line.me/ti/p/JCc2GSeMX-"
+            },
+            "style": "primary"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "hero": {
+        "type": "image",
+        "url": "https://static.wixstatic.com/media/27942d_87dacb011781456f9c69208e560146ec~mv2_d_4928_3280_s_4_2.jpg/v1/fill/w_353,h_342,al_c,q_80,usm_0.66_1.00_0.01/27942d_87dacb011781456f9c69208e560146ec~mv2_d_4928_3280_s_4_2.webp",
+        "margin": "none",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "backgroundColor": "#E3E3E3FF",
+        "action": {
+          "type": "uri",
+          "uri": "https://www.upballoonarts.com/arrangement-1?lang=zh"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "氣球",
+            "weight": "bold",
+            "size": "xl",
+            "align": "center",
+            "wrap": true,
+            "contents": []
+          },
+          {
+            "type": "separator",
+            "margin": "xs",
+            "color": "#E52929FF"
+          },
+          {
+            "type": "text",
+            "text": "打造課自專屬婚禮",
+            "weight": "bold",
+            "size": "md",
+            "flex": 0,
+            "align": "center",
+            "wrap": true,
+            "contents": []
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "xs",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "官方網站",
+              "uri": "https://www.upballoonarts.com/"
+            },
+            "style": "primary",
+            "position": "relative"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "datetimepicker",
+              "label": "預約時間",
+              "data": "預約時間",
+              "mode": "datetime",
+              "initial": "2021-01-08T00:28",
+              "max": "2022-01-08T00:28",
+              "min": "2020-01-08T00:28"
+            },
+            "style": "secondary"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "xl",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "FB粉絲團",
+              "uri": "https://www.facebook.com/UPballoonarts"
+            },
+            "flex": 1,
+            "gravity": "center"
+          }
+        ]
+      }
     }
-};
-
-/**
-* Check if myLiffId is null. If null do not initiate liff.
-* @param {string} myLiffId The LIFF ID of the selected element
-*/
-function initializeLiffOrDie(myLiffId) {
-    if (!myLiffId) {
-        document.getElementById("liffAppContent").classList.add('hidden');
-        document.getElementById("liffIdErrorMessage").classList.remove('hidden');
-    } else {
-        initializeLiff(myLiffId);
-    }
-}
-
-/**
-* Initialize LIFF
-* @param {string} myLiffId The LIFF ID of the selected element
-*/
-function initializeLiff(myLiffId) {
-    liff
-        .init({
-            liffId: myLiffId
-        })
-        .then(() => {
-            // start to use LIFF's api
-            initializeApp();
-        })
-        .catch((err) => {
-            document.getElementById("liffAppContent").classList.add('hidden');
-            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
-        });
-}
-
-/**
- * Initialize the app by calling functions handling individual app components
- */
-function initializeApp() {
-    displayLiffData();
-    displayIsInClientInfo();
-    registerButtonHandlers();
-
-    // check if the user is logged in/out, and disable inappropriate button
-    if (liff.isLoggedIn()) {
-        document.getElementById('liffLoginButton').disabled = true;
-    } else {
-        document.getElementById('liffLogoutButton').disabled = true;
-    }
-}
-
-/**
-* Display data generated by invoking LIFF methods
-*/
-function displayLiffData() {
-    document.getElementById('browserLanguage').textContent = liff.getLanguage();
-    document.getElementById('sdkVersion').textContent = liff.getVersion();
-    document.getElementById('lineVersion').textContent = liff.getLineVersion();
-    document.getElementById('isInClient').textContent = liff.isInClient();
-    document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
-    document.getElementById('deviceOS').textContent = liff.getOS();
-}
-
-/**
-* Toggle the login/logout buttons based on the isInClient status, and display a message accordingly
-*/
-function displayIsInClientInfo() {
-    if (liff.isInClient()) {
-        document.getElementById('liffLoginButton').classList.toggle('hidden');
-        document.getElementById('liffLogoutButton').classList.toggle('hidden');
-        document.getElementById('isInClientMessage').textContent = 'You are opening the app in the in-app browser of LINE.';
-    } else {
-        document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
-        document.getElementById('shareTargetPicker').classList.toggle('hidden');
-    }
-}
-
-/**
-* Register event handlers for the buttons displayed in the app
-*/
-function registerButtonHandlers() {
-    // openWindow call
-    document.getElementById('openWindowButton').addEventListener('click', function() {
-        liff.openWindow({
-            url: 'https://line.me',
-            external: true
-        });
-    });
-
-    // closeWindow call
-    document.getElementById('closeWindowButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.closeWindow();
-        }
-    });
-
-    // sendMessages call
-    document.getElementById('sendMessageButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': "You've successfully sent a message! Hooray!"
-            }]).then(function() {
-                window.alert('Message sent');
-            }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
-            });
-        }
-    });
-
-    // scanCode call
-    document.getElementById('scanQrCodeButton').addEventListener('click', function() {
-        if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
-        } else {
-            liff.scanCode().then(result => {
-                // e.g. result = { value: "Hello LIFF app!" }
-                const stringifiedResult = JSON.stringify(result);
-                document.getElementById('scanQrField').textContent = stringifiedResult;
-                toggleQrCodeReader();
-            }).catch(err => {
-                document.getElementById('scanQrField').textContent = "scanCode failed!";
-            });
-        }
-    });
-
-    // get access token
-    document.getElementById('getAccessToken').addEventListener('click', function() {
-        if (!liff.isLoggedIn() && !liff.isInClient()) {
-            alert('To get an access token, you need to be logged in. Please tap the "login" button below and try again.');
-        } else {
-            const accessToken = liff.getAccessToken();
-            document.getElementById('accessTokenField').textContent = accessToken;
-            toggleAccessToken();
-        }
-    });
-
-    // get profile call
-    document.getElementById('getProfileButton').addEventListener('click', function() {
-        liff.getProfile().then(function(profile) {
-            document.getElementById('userIdProfileField').textContent = profile.userId;
-            document.getElementById('displayNameField').textContent = profile.displayName;
-
-            const profilePictureDiv = document.getElementById('profilePictureDiv');
-            if (profilePictureDiv.firstElementChild) {
-                profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
-            }
-            const img = document.createElement('img');
-            img.src = profile.pictureUrl;
-            img.alt = 'Profile Picture';
-            profilePictureDiv.appendChild(img);
-
-            document.getElementById('statusMessageField').textContent = profile.statusMessage;
-            toggleProfileData();
-        }).catch(function(error) {
-            window.alert('Error getting profile: ' + error);
-        });
-    });
-
-    document.getElementById('shareTargetPicker').addEventListener('click', function () {
-        if (liff.isApiAvailable('shareTargetPicker')) {
-            liff.shareTargetPicker([{
-                'type': 'text',
-                'text': 'Hello, World!'
-            }]).then(
-                document.getElementById('shareTargetPickerMessage').textContent = "Share target picker was launched."
-            ).catch(function (res) {
-                document.getElementById('shareTargetPickerMessage').textContent = "Failed to launch share target picker.";
-            });
-        }
-    });
-
-    // login call, only when external browser is used
-    document.getElementById('liffLoginButton').addEventListener('click', function() {
-        if (!liff.isLoggedIn()) {
-            // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
-            liff.login();
-        }
-    });
-
-    // logout call only when external browse
-    document.getElementById('liffLogoutButton').addEventListener('click', function() {
-        if (liff.isLoggedIn()) {
-            liff.logout();
-            window.location.reload();
-        }
-    });
-}
-
-/**
-* Alert the user if LIFF is opened in an external browser and unavailable buttons are tapped
-*/
-function sendAlertIfNotInClient() {
-    alert('This button is unavailable as LIFF is currently being opened in an external browser.');
-}
-
-/**
-* Toggle access token data field
-*/
-function toggleAccessToken() {
-    toggleElement('accessTokenData');
-}
-
-/**
-* Toggle profile info field
-*/
-function toggleProfileData() {
-    toggleElement('profileInfo');
-}
-
-/**
-* Toggle scanCode result field
-*/
-function toggleQrCodeReader() {
-    toggleElement('scanQr');
-}
-
-/**
-* Toggle specified element
-* @param {string} elementId The ID of the selected element
-*/
-function toggleElement(elementId) {
-    const elem = document.getElementById(elementId);
-    if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
-        elem.style.display = 'none';
-    } else {
-        elem.style.display = 'block';
-    }
+  ]
 }
